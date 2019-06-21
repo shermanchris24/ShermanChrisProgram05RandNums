@@ -44,7 +44,7 @@ namespace ShermanChrisProgram05RandNums
 
         //Validates data. Will return true if user entered good data, will return false if badData.
         //Multiple return statements
-        //Checks if user entered an interger, if entered nothing, or entered outside valid range
+        //Checks if user entered an interger, if entered nothing, or entered outside valid range/
         private bool userInputValidator()
         {
             //check if is int
