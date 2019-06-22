@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ShermanChrisProgram05RandNums
 {
@@ -27,28 +28,81 @@ namespace ShermanChrisProgram05RandNums
         private void writeToFileButton_Click(object sender, EventArgs e)
         {
             //check if is an int
+            // //will have the user save the file to create, unless the user cancels the save;
             bool goodInput = false;
+            bool savedFile = false;//if user saved file will be true if not false
             goodInput = userInputValidator();
 
-            //runs if user entered valid data
-            if(goodInput)
+            if (goodInput)
             {
-                createAndWriteRandNums();
+                savedFile = SaveFile();//if user saves the file this function will call createAndWriteRandumNums();
+
+            }
+
+            //runs if user entered valid data
+            if(savedFile)
+            {
+                
+                writeRandsToFile();//working, next step is to read from file.
+                MessageBox.Show("We made it to the end");
+                
             }
         }
 
-        private void createAndWriteRandNums()
+        //creates file and writes random numbers to it
+        private void writeRandsToFile()
         {
+            const int MIN_RANDOM_NUMBER = 1;
+            const int MAX_RANDOM_NUMBER = 100;
+            int numRands = int.Parse(randNumsTextBox.Text);
+            int currentRandInt;
+            Random rand = new Random();
+            string fileLocation = saveFileDialog1.FileName;
+            StreamWriter outputFile;
+
+            outputFile = File.CreateText(fileLocation);
+
+            for(int i = 0; i < numRands; i++)
+            {
+                currentRandInt = rand.Next(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER); //generates numbers between 1-99
+                outputFile.WriteLine(currentRandInt.ToString()); 
+            }
+            outputFile.Close();//closed the file
             
         }
+
+        private bool SaveFile()
+        {
+
+            
+            //if else below mostly taken from textbook p324 gaddis starting out with visual c#5th ed
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                
+                return true;
+
+            }
+            else
+            {
+                MessageBox.Show("You clicked the Cancel button. Must select save in order to write to a file");
+                return false;
+            }
+        }
+
+
 
         //Validates data. Will return true if user entered good data, will return false if badData.
         //Multiple return statements
         //Checks if user entered an interger, if entered nothing, or entered outside valid range/
         private bool userInputValidator()
         {
-            //check if is int
             int numRands;
+
+            if(randNumsTextBox.Text == "")
+            {
+                MessageBox.Show("The textbox is empty. Please enter an interger 1-20");
+                return false; //assigns goodInput to false
+            }
 
             try
             {
@@ -58,14 +112,10 @@ namespace ShermanChrisProgram05RandNums
             {
                 MessageBox.Show("Please enter an integer 1-20");
                 randNumsTextBox.Text = "";
-            return false; //assigns goodInput to false
-            }
-
-            if(randNumsTextBox.Text == "")
-            {
-                MessageBox.Show("The textbox is empty. Please enter an interger 1-20");
                 return false; //assigns goodInput to false
             }
+
+
 
             const int MIN_NUM_RANDOMS = 1;
             const int MAX_NUM_RANDOMS = 20;
@@ -76,9 +126,11 @@ namespace ShermanChrisProgram05RandNums
             }
             else
             {
-                return true; //returns true to goodInput allowing the methods to continue
+                return true; //returns true to goodInput e
             }
-            
+
+
+          
         }
 
         private void readFileButton_Click(object sender, EventArgs e)

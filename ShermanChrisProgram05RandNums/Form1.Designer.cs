@@ -36,6 +36,7 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.readFileButton = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -60,9 +61,9 @@
             // 
             // randNumsTextBox
             // 
-            this.randNumsTextBox.Location = new System.Drawing.Point(452, 72);
+            this.randNumsTextBox.Location = new System.Drawing.Point(495, 73);
             this.randNumsTextBox.Name = "randNumsTextBox";
-            this.randNumsTextBox.Size = new System.Drawing.Size(42, 22);
+            this.randNumsTextBox.Size = new System.Drawing.Size(59, 22);
             this.randNumsTextBox.TabIndex = 2;
             // 
             // writeToFileButton
@@ -70,7 +71,7 @@
             this.writeToFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.writeToFileButton.Location = new System.Drawing.Point(378, 131);
             this.writeToFileButton.Name = "writeToFileButton";
-            this.writeToFileButton.Size = new System.Drawing.Size(116, 30);
+            this.writeToFileButton.Size = new System.Drawing.Size(157, 50);
             this.writeToFileButton.TabIndex = 3;
             this.writeToFileButton.Text = "Write to File";
             this.writeToFileButton.UseVisualStyleBackColor = true;
@@ -109,9 +110,9 @@
             // 
             // readFileButton
             // 
-            this.readFileButton.Location = new System.Drawing.Point(305, 187);
+            this.readFileButton.Location = new System.Drawing.Point(358, 216);
             this.readFileButton.Name = "readFileButton";
-            this.readFileButton.Size = new System.Drawing.Size(141, 38);
+            this.readFileButton.Size = new System.Drawing.Size(177, 60);
             this.readFileButton.TabIndex = 7;
             this.readFileButton.Text = "Read From File";
             this.readFileButton.UseVisualStyleBackColor = true;
@@ -121,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 547);
+            this.ClientSize = new System.Drawing.Size(584, 596);
             this.Controls.Add(this.readFileButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.clearButton);
@@ -147,6 +148,7 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button readFileButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
