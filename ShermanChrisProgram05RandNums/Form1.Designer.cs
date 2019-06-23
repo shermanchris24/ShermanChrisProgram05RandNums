@@ -37,6 +37,9 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.readFileButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.totalLabelBlank = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -118,11 +121,34 @@
             this.readFileButton.UseVisualStyleBackColor = true;
             this.readFileButton.Click += new System.EventHandler(this.readFileButton_Click);
             // 
+            // totalLabel
+            // 
+            this.totalLabel.AutoSize = true;
+            this.totalLabel.Location = new System.Drawing.Point(174, 463);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(44, 17);
+            this.totalLabel.TabIndex = 8;
+            this.totalLabel.Text = "Total:";
+            // 
+            // totalLabelBlank
+            // 
+            this.totalLabelBlank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.totalLabelBlank.Location = new System.Drawing.Point(224, 463);
+            this.totalLabelBlank.Name = "totalLabelBlank";
+            this.totalLabelBlank.Size = new System.Drawing.Size(100, 23);
+            this.totalLabelBlank.TabIndex = 9;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // randNumsListBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 596);
+            this.Controls.Add(this.totalLabelBlank);
+            this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.readFileButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.clearButton);
@@ -149,6 +175,9 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button readFileButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.Label totalLabelBlank;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

@@ -41,11 +41,8 @@ namespace ShermanChrisProgram05RandNums
 
             //runs if user entered valid data
             if(savedFile)
-            {
-                
-                writeRandsToFile();//working, next step is to read from file.
-                MessageBox.Show("We made it to the end");
-                
+            {     
+                writeRandsToFile();   
             }
         }
 
@@ -135,7 +132,42 @@ namespace ShermanChrisProgram05RandNums
 
         private void readFileButton_Click(object sender, EventArgs e)
         {
+            //Fixme Could not find File
+            try
+            {
+                OpenFileDialog myOpenFileDialog = new OpenFileDialog();
+                
+                if (myOpenFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("You clicked the Open button.");
+                    string fileLocation = myOpenFileDialog.FileName;//FIXME need to add a check to make sure not an empty string? i think
 
+                    MessageBox.Show(fileLocation);
+                    StreamReader inputFile = File.OpenText(fileLocation);
+                    int sum = 0;
+                    while (!inputFile.EndOfStream)
+                    {
+                        int currentInt = int.Parse(inputFile.ReadLine());
+                        listBox1.Items.Add(currentInt.ToString());
+                        sum += currentInt;
+                    }
+
+                    totalLabelBlank.Text = sum.ToString();
+                }
+
+
+                else
+                {
+                    MessageBox.Show("You clicked the Cancel button.");
+                }
+
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void clearButton_Click(object sender, EventArgs e)
